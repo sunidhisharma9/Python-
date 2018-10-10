@@ -1,0 +1,49 @@
+def succ(n):
+    '''
+        OBJECTIVE:To return the successor of the non-negative number.
+        INPUT PARAMETERS:
+                        n: Non-negative number.
+        OUTPUT: Return successor of the number.
+    '''
+    #Approach: To add 1 to the given number.
+    if n>=0:
+        return n+1
+    else:
+        return "Number is negative"
+
+def pred(n,x=0):
+    '''
+        OBJECTIVE: To return the predecessor of the non-negative number.
+        INPUT PARAMETERS:
+                        n: Positive number.
+                        x: Temporary variable stores successor at each successive call
+        OUTPUT: Return the predecessor of the number.
+    '''
+    #Approach: To make use of the succ(n) function.
+    if(n>0):
+        y=succ(x)
+        if y<=n:
+            if y!=n:
+                return pred(n,y)
+            elif y==n:
+                return x
+        else:
+            x=0
+            return pred(n,x)
+    else:
+        print("Number is not positive")
+
+def add(m,n):
+    '''
+    OBJECTIVE: To compute the addition of two non-negative numbers.
+    INPUT PARAMETERS:
+            m: First number.
+            n: Second number.
+    OUTPUT: Return the sum of the two numbers.
+    '''
+    #APPROACH:Using succ(n) and pred(n) to add numbers.
+
+    if n==0:
+        return m
+    else:
+        return add(succ(m),pred(n))
